@@ -1,0 +1,318 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.zking.teamProject.mapper.UserMapper" >
+  <resultMap id="BaseResultMap" type="com.zking.teamProject.model.User" >
+    <constructor >
+      <idArg column="uid" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="uname" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="utel" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="upwd" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="usalt" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="img" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="Real_Name" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="Real_Sex" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="Real_ Card" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="Real_Dirthday" jdbcType="DATE" javaType="java.util.Date" />
+      <arg column="Home_Add" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="Img1" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="Img2" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="Real_Home" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="Real_Children" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="Real_Salary" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="Real_Education" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="Real_Marriage" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="Auditor_Time" jdbcType="DATE" javaType="java.util.Date" />
+      <arg column="Apply_Time" jdbcType="DATE" javaType="java.util.Date" />
+      <arg column="Auditor_Id" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="ustate" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="uzfpwd" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="uzfsalt" jdbcType="VARCHAR" javaType="java.lang.String" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List" >
+    uid, uname, utel, upwd, usalt, img, Real_Name, Real_Sex, "Real_ Card", Real_Dirthday, 
+    Home_Add, Img1, Img2, Real_Home, Real_Children, Real_Salary, Real_Education, Real_Marriage, 
+    Auditor_Time, Apply_Time, Auditor_Id, ustate, uzfpwd, uzfsalt
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from user
+    where uid = #{uid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from user
+    where uid = #{uid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.zking.teamProject.model.User" >
+    insert into user (uname, utel,
+      upwd, usalt, img, Real_Name, 
+      Real_Sex, "Real_ Card", Real_Dirthday, 
+      Home_Add, Img1, Img2, 
+      Real_Home, Real_Children, Real_Salary, 
+      Real_Education, Real_Marriage, Auditor_Time, 
+      Apply_Time, Auditor_Id, ustate, 
+      uzfpwd, uzfsalt)
+    values (#{uname,jdbcType=VARCHAR}, #{utel,jdbcType=VARCHAR},
+      #{upwd,jdbcType=VARCHAR}, #{usalt,jdbcType=VARCHAR}, #{img,jdbcType=INTEGER}, #{realName,jdbcType=VARCHAR}, 
+      #{realSex,jdbcType=VARCHAR}, #{realCard,jdbcType=VARCHAR}, #{realDirthday,jdbcType=DATE}, 
+      #{homeAdd,jdbcType=VARCHAR}, #{img1,jdbcType=INTEGER}, #{img2,jdbcType=INTEGER}, 
+      #{realHome,jdbcType=INTEGER}, #{realChildren,jdbcType=INTEGER}, #{realSalary,jdbcType=INTEGER}, 
+      #{realEducation,jdbcType=INTEGER}, #{realMarriage,jdbcType=INTEGER}, #{auditorTime,jdbcType=DATE}, 
+      #{applyTime,jdbcType=DATE}, #{auditorId,jdbcType=INTEGER}, #{ustate,jdbcType=INTEGER}, 
+      #{uzfpwd,jdbcType=VARCHAR}, #{uzfsalt,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.zking.teamProject.model.User" >
+    insert into user
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="uid != null" >
+        uid,
+      </if>
+      <if test="uname != null" >
+        uname,
+      </if>
+      <if test="utel != null" >
+        utel,
+      </if>
+      <if test="upwd != null" >
+        upwd,
+      </if>
+      <if test="usalt != null" >
+        usalt,
+      </if>
+      <if test="img != null" >
+        img,
+      </if>
+      <if test="realName != null" >
+        Real_Name,
+      </if>
+      <if test="realSex != null" >
+        Real_Sex,
+      </if>
+      <if test="realCard != null" >
+        "Real_ Card",
+      </if>
+      <if test="realDirthday != null" >
+        Real_Dirthday,
+      </if>
+      <if test="homeAdd != null" >
+        Home_Add,
+      </if>
+      <if test="img1 != null" >
+        Img1,
+      </if>
+      <if test="img2 != null" >
+        Img2,
+      </if>
+      <if test="realHome != null" >
+        Real_Home,
+      </if>
+      <if test="realChildren != null" >
+        Real_Children,
+      </if>
+      <if test="realSalary != null" >
+        Real_Salary,
+      </if>
+      <if test="realEducation != null" >
+        Real_Education,
+      </if>
+      <if test="realMarriage != null" >
+        Real_Marriage,
+      </if>
+      <if test="auditorTime != null" >
+        Auditor_Time,
+      </if>
+      <if test="applyTime != null" >
+        Apply_Time,
+      </if>
+      <if test="auditorId != null" >
+        Auditor_Id,
+      </if>
+      <if test="ustate != null" >
+        ustate,
+      </if>
+      <if test="uzfpwd != null" >
+        uzfpwd,
+      </if>
+      <if test="uzfsalt != null" >
+        uzfsalt,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="uid != null" >
+        #{uid,jdbcType=INTEGER},
+      </if>
+      <if test="uname != null" >
+        #{uname,jdbcType=VARCHAR},
+      </if>
+      <if test="utel != null" >
+        #{utel,jdbcType=VARCHAR},
+      </if>
+      <if test="upwd != null" >
+        #{upwd,jdbcType=VARCHAR},
+      </if>
+      <if test="usalt != null" >
+        #{usalt,jdbcType=VARCHAR},
+      </if>
+      <if test="img != null" >
+        #{img,jdbcType=INTEGER},
+      </if>
+      <if test="realName != null" >
+        #{realName,jdbcType=VARCHAR},
+      </if>
+      <if test="realSex != null" >
+        #{realSex,jdbcType=VARCHAR},
+      </if>
+      <if test="realCard != null" >
+        #{realCard,jdbcType=VARCHAR},
+      </if>
+      <if test="realDirthday != null" >
+        #{realDirthday,jdbcType=DATE},
+      </if>
+      <if test="homeAdd != null" >
+        #{homeAdd,jdbcType=VARCHAR},
+      </if>
+      <if test="img1 != null" >
+        #{img1,jdbcType=INTEGER},
+      </if>
+      <if test="img2 != null" >
+        #{img2,jdbcType=INTEGER},
+      </if>
+      <if test="realHome != null" >
+        #{realHome,jdbcType=INTEGER},
+      </if>
+      <if test="realChildren != null" >
+        #{realChildren,jdbcType=INTEGER},
+      </if>
+      <if test="realSalary != null" >
+        #{realSalary,jdbcType=INTEGER},
+      </if>
+      <if test="realEducation != null" >
+        #{realEducation,jdbcType=INTEGER},
+      </if>
+      <if test="realMarriage != null" >
+        #{realMarriage,jdbcType=INTEGER},
+      </if>
+      <if test="auditorTime != null" >
+        #{auditorTime,jdbcType=DATE},
+      </if>
+      <if test="applyTime != null" >
+        #{applyTime,jdbcType=DATE},
+      </if>
+      <if test="auditorId != null" >
+        #{auditorId,jdbcType=INTEGER},
+      </if>
+      <if test="ustate != null" >
+        #{ustate,jdbcType=INTEGER},
+      </if>
+      <if test="uzfpwd != null" >
+        #{uzfpwd,jdbcType=VARCHAR},
+      </if>
+      <if test="uzfsalt != null" >
+        #{uzfsalt,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.zking.teamProject.model.User" >
+    update user
+    <set >
+      <if test="uname != null" >
+        uname = #{uname,jdbcType=VARCHAR},
+      </if>
+      <if test="utel != null" >
+        utel = #{utel,jdbcType=VARCHAR},
+      </if>
+      <if test="upwd != null" >
+        upwd = #{upwd,jdbcType=VARCHAR},
+      </if>
+      <if test="usalt != null" >
+        usalt = #{usalt,jdbcType=VARCHAR},
+      </if>
+      <if test="img != null" >
+        img = #{img,jdbcType=INTEGER},
+      </if>
+      <if test="realName != null" >
+        Real_Name = #{realName,jdbcType=VARCHAR},
+      </if>
+      <if test="realSex != null" >
+        Real_Sex = #{realSex,jdbcType=VARCHAR},
+      </if>
+      <if test="realCard != null" >
+        "Real_ Card" = #{realCard,jdbcType=VARCHAR},
+      </if>
+      <if test="realDirthday != null" >
+        Real_Dirthday = #{realDirthday,jdbcType=DATE},
+      </if>
+      <if test="homeAdd != null" >
+        Home_Add = #{homeAdd,jdbcType=VARCHAR},
+      </if>
+      <if test="img1 != null" >
+        Img1 = #{img1,jdbcType=INTEGER},
+      </if>
+      <if test="img2 != null" >
+        Img2 = #{img2,jdbcType=INTEGER},
+      </if>
+      <if test="realHome != null" >
+        Real_Home = #{realHome,jdbcType=INTEGER},
+      </if>
+      <if test="realChildren != null" >
+        Real_Children = #{realChildren,jdbcType=INTEGER},
+      </if>
+      <if test="realSalary != null" >
+        Real_Salary = #{realSalary,jdbcType=INTEGER},
+      </if>
+      <if test="realEducation != null" >
+        Real_Education = #{realEducation,jdbcType=INTEGER},
+      </if>
+      <if test="realMarriage != null" >
+        Real_Marriage = #{realMarriage,jdbcType=INTEGER},
+      </if>
+      <if test="auditorTime != null" >
+        Auditor_Time = #{auditorTime,jdbcType=DATE},
+      </if>
+      <if test="applyTime != null" >
+        Apply_Time = #{applyTime,jdbcType=DATE},
+      </if>
+      <if test="auditorId != null" >
+        Auditor_Id = #{auditorId,jdbcType=INTEGER},
+      </if>
+      <if test="ustate != null" >
+        ustate = #{ustate,jdbcType=INTEGER},
+      </if>
+      <if test="uzfpwd != null" >
+        uzfpwd = #{uzfpwd,jdbcType=VARCHAR},
+      </if>
+      <if test="uzfsalt != null" >
+        uzfsalt = #{uzfsalt,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where uid = #{uid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.zking.teamProject.model.User" >
+    update user
+    set uname = #{uname,jdbcType=VARCHAR},
+      utel = #{utel,jdbcType=VARCHAR},
+      upwd = #{upwd,jdbcType=VARCHAR},
+      usalt = #{usalt,jdbcType=VARCHAR},
+      img = #{img,jdbcType=INTEGER},
+      Real_Name = #{realName,jdbcType=VARCHAR},
+      Real_Sex = #{realSex,jdbcType=VARCHAR},
+      "Real_ Card" = #{realCard,jdbcType=VARCHAR},
+      Real_Dirthday = #{realDirthday,jdbcType=DATE},
+      Home_Add = #{homeAdd,jdbcType=VARCHAR},
+      Img1 = #{img1,jdbcType=INTEGER},
+      Img2 = #{img2,jdbcType=INTEGER},
+      Real_Home = #{realHome,jdbcType=INTEGER},
+      Real_Children = #{realChildren,jdbcType=INTEGER},
+      Real_Salary = #{realSalary,jdbcType=INTEGER},
+      Real_Education = #{realEducation,jdbcType=INTEGER},
+      Real_Marriage = #{realMarriage,jdbcType=INTEGER},
+      Auditor_Time = #{auditorTime,jdbcType=DATE},
+      Apply_Time = #{applyTime,jdbcType=DATE},
+      Auditor_Id = #{auditorId,jdbcType=INTEGER},
+      ustate = #{ustate,jdbcType=INTEGER},
+      uzfpwd = #{uzfpwd,jdbcType=VARCHAR},
+      uzfsalt = #{uzfsalt,jdbcType=VARCHAR}
+    where uid = #{uid,jdbcType=INTEGER}
+  </update>
+</mapper>
