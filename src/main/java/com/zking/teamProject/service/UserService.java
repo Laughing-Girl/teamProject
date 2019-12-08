@@ -2,7 +2,7 @@ package com.zking.teamProject.service;
 
 import com.zking.teamProject.model.User;
 
-public interface IUserService {
+public interface UserService {
     int deleteByPrimaryKey(Integer uid);
 
     int insert(User record);

@@ -1,15 +1,12 @@
 package com.zking.teamProject.model;
 
-<<<<<<< HEAD
 import java.util.Date;
 
-=======
 import lombok.ToString;
 
 import java.util.Date;
 
 @ToString
->>>>>>> origin/master
 public class User {
     private Integer uid;
 
