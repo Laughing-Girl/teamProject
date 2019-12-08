@@ -45,7 +45,11 @@
     where uid = #{uid,jdbcType=INTEGER}
   </delete>
   <insert id="insert" parameterType="com.zking.teamProject.model.User" >
+<<<<<<< HEAD
     insert into user (uid, uname, utel, 
+=======
+    insert into user (uname, utel,
+>>>>>>> origin/master
       upwd, usalt, img, Real_Name, 
       Real_Sex, "Real_ Card", Real_Dirthday, 
       Home_Add, Img1, Img2, 
@@ -53,7 +57,11 @@
       Real_Education, Real_Marriage, Auditor_Time, 
       Apply_Time, Auditor_Id, ustate, 
       uzfpwd, uzfsalt)
+<<<<<<< HEAD
     values (#{uid,jdbcType=INTEGER}, #{uname,jdbcType=VARCHAR}, #{utel,jdbcType=VARCHAR}, 
+=======
+    values (#{uname,jdbcType=VARCHAR}, #{utel,jdbcType=VARCHAR},
+>>>>>>> origin/master
       #{upwd,jdbcType=VARCHAR}, #{usalt,jdbcType=VARCHAR}, #{img,jdbcType=INTEGER}, #{realName,jdbcType=VARCHAR}, 
       #{realSex,jdbcType=VARCHAR}, #{realCard,jdbcType=VARCHAR}, #{realDirthday,jdbcType=DATE}, 
       #{homeAdd,jdbcType=VARCHAR}, #{img1,jdbcType=INTEGER}, #{img2,jdbcType=INTEGER}, 

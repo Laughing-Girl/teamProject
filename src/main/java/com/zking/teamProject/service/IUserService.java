@@ -1,14 +1,8 @@
-package com.zking.teamProject.mapper;
+package com.zking.teamProject.service;
 
 import com.zking.teamProject.model.User;
-<<<<<<< HEAD
 
-=======
-import org.springframework.stereotype.Repository;
-
-@Repository
->>>>>>> origin/master
-public interface UserMapper {
+public interface IUserService {
     int deleteByPrimaryKey(Integer uid);
 
     int insert(User record);
