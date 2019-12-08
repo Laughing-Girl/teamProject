@@ -1,15 +1,19 @@
 package com.zking.teamProject.service.imp;
 
+import com.zking.teamProject.mapper.UserMapper;
 import com.zking.teamProject.model.User;
-import com.zking.teamProject.service.IUserService;
+import com.zking.teamProject.service.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.beans.Transient;
 
 @Transactional
 @Service
-public class UserServiceImpl implements IUserService {
+public class UserServiceImpl implements UserService {
+    @Autowired
+    private UserMapper userMapper;
+
     @Override
     public int deleteByPrimaryKey(Integer uid) {
         return 0;
@@ -27,7 +31,7 @@ public class UserServiceImpl implements IUserService {
 
     @Override
     public User selectByPrimaryKey(Integer uid) {
-        return null;
+        return userMapper.selectByPrimaryKey(uid);
     }
 
     @Override
@@ -39,4 +43,5 @@ public class UserServiceImpl implements IUserService {
     public int updateByPrimaryKey(User record) {
         return 0;
     }
+
 }
